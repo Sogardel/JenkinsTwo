@@ -43,8 +43,8 @@ public class BaseTest {
 		options.addArguments("start-maximized"); 
 		options.addArguments("--headless"); 
 		
-		driver = new ChromeDriver(options);
-		driver.manage().window().maximize();
+		//driver = new ChromeDriver(options);
+		//driver.manage().window().maximize();
 
 		
 		  FirefoxBinary firefoxBinary = new FirefoxBinary();
