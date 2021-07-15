@@ -48,14 +48,18 @@ public class BaseTest {
 
 		
 		  FirefoxBinary firefoxBinary = new FirefoxBinary();
-		  firefoxBinary.addCommandLineOptions("--headless"); FirefoxOptions
-		  firefoxOptions = new FirefoxOptions();
+		  firefoxBinary.addCommandLineOptions("--headless"); 
+		  FirefoxOptions firefoxOptions = new FirefoxOptions();
 		  firefoxOptions.setBinary(firefoxBinary);
 		  
-		  if(browser != "" & browser != null ) { if(browser.equalsIgnoreCase("chrome"))
-		  { driver = new ChromeDriver(options); driver.manage().window().maximize(); }
-		  else if(browser.equalsIgnoreCase("Firefox")) { driver = new
-		  FirefoxDriver(firefoxOptions); driver.manage().window().maximize();
+		  if(browser != "" & browser != null ) { 
+			  if(browser.equalsIgnoreCase("chrome"))
+		  { 
+				  driver = new ChromeDriver(options); 
+				  driver.manage().window().maximize(); }
+		  else if(browser.equalsIgnoreCase("Firefox")) 
+		  { driver = new FirefoxDriver(firefoxOptions); 
+		  driver.manage().window().maximize();
 		  
 		  }
 		  
