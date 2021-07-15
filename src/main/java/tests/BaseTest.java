@@ -14,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -38,19 +39,27 @@ public class BaseTest {
 	@BeforeClass
 	public void setup(String url) throws IOException {
 		//System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
-		
+				
 		ChromeOptions options = new ChromeOptions();
+		
 		options.addArguments("start-maximized"); 
 		options.addArguments("--headless"); 
 		
+		
+		///options.addArguments("disable-infobars");
+		
 		driver = new ChromeDriver(options);
+		
+		
 		driver.manage().window().maximize();
 		  
 		 
 		
-		driver.manage().window().setSize(new Dimension(1440, 900));
 
 		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);	
+		
+		driver.manage().window().setSize(new Dimension(1440, 900));
+
 		driver.get(url);
 
 		
