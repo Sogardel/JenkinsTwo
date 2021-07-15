@@ -39,20 +39,36 @@ public class BaseTest {
 	@BeforeClass
 	public void setup(String url) throws IOException {
 		//System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
-				
-		ChromeOptions options = new ChromeOptions();
 		
+		//Chrome options
+		ChromeOptions options = new ChromeOptions();
 		options.addArguments("start-maximized"); 
 		options.addArguments("--headless"); 
 		
+		//Firefox options
+		FirefoxBinary fixerfoxBinary = new FirefoxBinary();
+		fixerfoxBinary.addCommandLineOptions("--headless");
+		FirefoxOptions firefoxOPtions =  new FirefoxOptions();
+		firefoxOPtions.setBinary(fixerfoxBinary);
 		
-		///options.addArguments("disable-infobars");
 		
-		driver = new ChromeDriver(options);
+		if(browser != "" & browser !=null) {
+			if(browser.equalsIgnoreCase("chrome")) {
+				
+				driver = new ChromeDriver(options);
+				driver.manage().window().maximize();
+			}
+			else if(browser.equalsIgnoreCase("firefox")) {
+				driver = new FirefoxDriver(firefoxOPtions);
+			}
+		}
+		else {
+			driver = new ChromeDriver(options);
+			driver.manage().window().maximize();
+			  
+		}
 		
 		
-		driver.manage().window().maximize();
-		  
 		 
 		
 
