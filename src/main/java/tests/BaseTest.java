@@ -43,29 +43,8 @@ public class BaseTest {
 		options.addArguments("start-maximized"); 
 		options.addArguments("--headless"); 
 		
-		//driver = new ChromeDriver(options);
-		//driver.manage().window().maximize();
-
-		
-		  FirefoxBinary firefoxBinary = new FirefoxBinary();
-		  firefoxBinary.addCommandLineOptions("--headless"); 
-		  FirefoxOptions firefoxOptions = new FirefoxOptions();
-		  firefoxOptions.setBinary(firefoxBinary);
-		  
-		  if(browser != "" & browser != null ) { 
-			  if(browser.equalsIgnoreCase("chrome"))
-		  { 
-				  driver = new ChromeDriver(options); 
-				  driver.manage().window().maximize(); }
-		  else if(browser.equalsIgnoreCase("Firefox")) 
-		  { driver = new FirefoxDriver(firefoxOptions); 
-		  driver.manage().window().maximize();
-		  
-		  }
-		  
-		  } else {
-		  
-		  driver = new ChromeDriver(options); driver.manage().window().maximize(); }
+		driver = new ChromeDriver(options);
+		driver.manage().window().maximize();
 		  
 		 
 		
